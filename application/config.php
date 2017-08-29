@@ -237,7 +237,7 @@ return [
 
     'captcha' =>[
         // 验证码字符集合
-        'codeSet'  => '8888888',
+        'codeSet'  => '0123456789abcdefghijklmnopqrstuvwsyzABCDEFGHYZKLMNOPQRSTUVWSXYZ',
         // 验证码字体大小(px)
         'fontSize' => 14,
         // 是否画混淆曲线
