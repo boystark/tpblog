@@ -1,0 +1,24 @@
+1.模块demo
+php think build --module demo
+
+// 关闭调试模式
+'app_debug' =>  false,
+
+http://localhost/public/index.php/第一个参数/第二个参数/第三个参数
+//同时修改application下的文件夹index和其下的控制器namespace可以控制url的第一个参数
+//修改控制器文件名称和类名称，可以改变的二个参数
+//修改类里面的方法可以改变第三个参数
+
+
+//sudo chmod -R 777 tp.boystark.com
+将所有的文件库 tp.boystark.com权限改为777
+
+//http://blog.csdn.net/cse110/article/details/70226437
+所有的配置pdo  fpm
+
+
+修改php-fpm的配置文件
+user = www
+group = www
+
+可以避免权限问题

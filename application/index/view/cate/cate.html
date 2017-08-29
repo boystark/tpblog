@@ -1,0 +1,29 @@
+{extend name="common/main" /}
+{block name="content"}
+<article class="col-sm-12 col-md-6 col-lg-8 left">
+
+	{volist name='articleres' id='art'}
+	<div class="xnews2">
+		<div class="pic"><a target="_blank" href="{:url('article/index',array('arid'=>$art['id']))}"><img src="{if condition="$art['pic'] neq '' "}__IMG__{$art.pic}{else /}__PUBLIC__/images/error.png{/if}" alt="配图描述"/></a></div>
+		<div class="dec">''
+			<h3><a target="_blank" href="{:url('article/index',array('arid'=>$art['id']))}">{$art.title}</a></h3>
+			<div class="time">发布时间：{$art['time']|date="Y-m-d",###}</div>
+			<p>{$art.descri}</p>
+			<div class="time">
+				<?php
+								$arr=explode(',',$art['keywords']);
+
+								foreach ($arr as $k=>$v){
+
+				echo"<a href='http://localhost/tpblog/public/index.php/index/search/index?keywords=$v'>$v</a>";
+				}
+				?>
+
+			</div>
+		</div>
+	</div>
+	{/volist}
+	{$articleres->render()}
+
+</article>
+{/block}
