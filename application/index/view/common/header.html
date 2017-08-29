@@ -17,8 +17,7 @@
     <div class="hotmenu">
         <div class="con">热门标签：
             {volist name='tags' id='vo'}
-            <a href='http://blog.tp5.com/index.php/index/search/index?keywords={$vo.tagname}'>{$vo.tagname}</a>
-
+            <a href="{:url('search/index',array('keywords'=>$vo['tagname']))}">{$vo.tagname}</a>
             {/volist}
         </div>
     </div>
