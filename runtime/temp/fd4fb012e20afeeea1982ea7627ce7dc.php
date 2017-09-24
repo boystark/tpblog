@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:86:"C:\Users\kang\Documents\phpdata\tpblog\public/../application/index\view\cate\cate.html";i:1503973311;s:88:"C:\Users\kang\Documents\phpdata\tpblog\public/../application/index\view\common\main.html";i:1503972599;s:90:"C:\Users\kang\Documents\phpdata\tpblog\public/../application/index\view\common\header.html";i:1503971684;s:89:"C:\Users\kang\Documents\phpdata\tpblog\public/../application/index\view\common\right.html";i:1503972513;s:90:"C:\Users\kang\Documents\phpdata\tpblog\public/../application/index\view\common\footer.html";i:1503963288;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:86:"C:\Users\kang\Documents\phpdata\tpblog\public/../application/index\view\cate\cate.html";i:1506271284;s:88:"C:\Users\kang\Documents\phpdata\tpblog\public/../application/index\view\common\main.html";i:1503976014;s:90:"C:\Users\kang\Documents\phpdata\tpblog\public/../application/index\view\common\header.html";i:1504008662;s:89:"C:\Users\kang\Documents\phpdata\tpblog\public/../application/index\view\common\right.html";i:1503972513;s:90:"C:\Users\kang\Documents\phpdata\tpblog\public/../application/index\view\common\footer.html";i:1503963288;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -18,8 +18,6 @@
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script type='text/javascript' src='__PUBLIC__/style/ismobile.js'></script>
-    <link rel="stylesheet" href="../../../../../../../Desktop/laravel-data/前台/css/blog.css">
 </head>
 <body>
     
@@ -41,8 +39,7 @@
     <div class="hotmenu">
         <div class="con">热门标签：
             <?php if(is_array($tags) || $tags instanceof \think\Collection || $tags instanceof \think\Paginator): $i = 0; $__LIST__ = $tags;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-            <a href='http://blog.tp5.com/index.php/index/search/index?keywords=<?php echo $vo['tagname']; ?>'><?php echo $vo['tagname']; ?></a>
-
+            <a href="<?php echo url('search/index',array('keywords'=>$vo['tagname'])); ?>"><?php echo $vo['tagname']; ?></a>
             <?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
     </div>
@@ -59,7 +56,7 @@
 	<?php if(is_array($articleres) || $articleres instanceof \think\Collection || $articleres instanceof \think\Paginator): $i = 0; $__LIST__ = $articleres;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$art): $mod = ($i % 2 );++$i;?>
 	<div class="xnews2">
 		<div class="pic"><a target="_blank" href="<?php echo url('article/index',array('arid'=>$art['id'])); ?>"><img src="<?php if($art['pic'] != ''): ?>__IMG__<?php echo $art['pic']; else: ?>__PUBLIC__/images/error.png<?php endif; ?>" alt="配图描述"/></a></div>
-		<div class="dec">''
+		<div class="dec">
 			<h3><a target="_blank" href="<?php echo url('article/index',array('arid'=>$art['id'])); ?>"><?php echo $art['title']; ?></a></h3>
 			<div class="time">发布时间：<?php echo date("Y-m-d",$art['time']); ?></div>
 			<p><?php echo $art['descri']; ?></p>
@@ -69,7 +66,7 @@
 
 								foreach ($arr as $k=>$v){
 
-				echo"<a href='http://localhost/tpblog/public/index.php/index/search/index?keywords=$v'>$v</a>";
+				echo"<a href='http://blog.boystark.com/index/search/index?keywords=$v'>$v</a>";
 				}
 				?>
 
